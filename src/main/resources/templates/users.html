@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="UTF-8">
+
+
+</head>
+
+<center>
+    <h1 >Users</h1>  <!--font-size это размер шрифта-->
+</center>
+
+
+<body background="UsersBackground.jpg">
+
+
+<div th:switch="${users}" >
+    <h2 th:case="null">No records found!</h2>
+    <div th:case="*">
+
+
+
+        <form action="#" th:action="@{/users}" th:object="${user}" method="post">
+
+            <style>  /*расположение наименований над кнопками*/
+            ul.hr {
+                padding:10px; /* Значение полей */
+            }
+            ul.hr li {
+                display: inline; /* Отображать как строчный элемент */
+                margin-right:90px;
+                margin-left: 10px;
+                font-family: "Times New Roman"; /* Стиль шрифта */
+                font-size: xx-large; /* Размер шрифта */
+                font-weight: bold; /* Жирность шрифта */
+                color: black ;
+            }
+            </style>
+
+            <style>  /*расположение кнопок на форме*/
+            ur.hr  {
+                padding:10px; /* Значение полей */
+            }
+            ur.hr button1 {
+                display: inline; /* Отображать как строчный элемент */
+                margin-right: 370px;
+                margin-left: 150px; /*сдвиг влево*/
+                border-radius: 100%;
+                border: 0;
+                height: 100px;
+                width: 100px;
+            }
+            ur.hr button2 {
+                display: inline; /* Отображать как строчный элемент */
+                margin-right: 0px;
+                margin-left: -190px;/*сдвиг влево*/
+                border-radius: 100%;
+                border: 0;
+                height: 100px;
+                width: 100px;
+            }
+            ur.hr button3 {
+                display: inline; /* Отображать как строчный элемент */
+                margin-right: 440px;
+                margin-left: 225px;
+                border-radius: 100%;
+                border: 0;
+                height: 100px;
+                width: 100px;
+            }
+            ur.hr button4 {
+                display: inline; /* Отображать как строчный элемент */
+                margin-right: 8px;
+                margin-left: -255px;/*сдвиг влево*/
+                border-radius: 100%;
+                border: 0;
+                height: 100px;
+                width: 100px;
+            }
+            ur.hr button5 {
+                display: inline; /* Отображать как строчный элемент */
+                margin-right: 40px;
+                margin-left: 215px;/*сдвиг влево*/
+                border-radius: 100%;
+                border: 0;
+                height: 100px;
+                width: 100px;
+            }
+            ur.hr button6 {
+                display: inline; /* Отображать как строчный элемент */
+                margin-right: 0px;
+                margin-left: 130px;/*сдвиг влево*/
+                border-radius: 100%;
+                border: 0;
+                height: 100px;
+                width: 100px;
+            }
+            </style>
+
+            <form>
+                <div>
+                    <center>
+                        <ul class="hr" >
+                            <li>Main Page</li>
+                            <li>Set Fate Price </li>
+                            <li>Providers</li>
+                            <li>Milk Dairy</li>
+                            <li>Mik Dairy Records</li>
+                            <li>Exit</li>
+                        </ul>
+                    </center>
+                </div>
+
+                <div>
+
+                    <ur class="hr">
+                        <!-- Пример прописания ссылкой на страницу   <a href="/models">Milk Dairy</a>     -->
+                        <!--Кнопки-->
+
+                        <button1><a href ="http://localhost:8080/milk">
+                            <img src="MainPageButton.png" width="90" height="90"></a>
+                        </button1>
+
+                        <button2   onclick="window.location.href ='http://localhost:8080/setFatePrice';">
+                            <img src="fate%20price.png" width="90" height="90" >
+                        </button2>
+                        <button3   onclick="window.location.href ='http://localhost:8080/searchAccount';">
+                            <img src="searchAccount.png" width="90" height="90" >
+                        </button3>
+
+                        <button4><a href ="http://localhost:8080/milkDairy">
+                            <img src="milkDairy.png" width="90" height="90" ></a>
+                        </button4>
+
+                        <button5 onclick="window.location.href ='http://localhost:8080/dairyRecords';">
+                             <img src="milkDairyRecord.png" width="90" height="90" >
+                        </button5>
+
+                        <button6   onclick="window.location.href ='http://localhost:8080/ex';">
+                            <img src="exit.png" width="90" height="90" >
+                        </button6>
+                    </ur>
+
+                </div>
+
+
+                <div>
+
+                    <table  id="table" class="table_sort" >
+                        <!--размеры таблицы-->
+                        <style>
+                            table {
+                                font-size: 20px;
+                                font-weight: bold;
+                                width: 1100px;                 /* длина таблицы*/
+                                border-collapse: collapse;
+                                margin-top: 40px;
+                                text-align: center;
+                                margin-left: 305px;  /* расстояние слева */
+
+                            }
+                            td, th {
+                                border: 1px solid #98bf21;
+                                padding: 4px 8px 4px 8px;
+                            }
+                            th {
+                                text-align: left;
+                                padding: 5px;
+                                background-color: #A7C942;
+                                color: #fff;
+                            }
+                            .alt td { background-color: #EAF2D3; }
+
+                            /*для отображения сортировки в колонках*/
+                            th.sorted[data-order="-1"]::after {
+                                content: "▼"
+                            }
+                            th.sorted[data-order="1"]::after {
+                                content: "▲"
+                            }
+
+
+                            /*разметка для строки фильтра поиска */
+                            #myInput {
+                                margin-left: 1300px;
+                                margin-top: 50px;
+                                background-image: url(""); /* Добавить значок поиска для ввода */
+                                background-position: 10px 12px; /* Расположите значок поиска */
+                                background-repeat: no-repeat; /* Не повторяйте изображение значка */
+                                width: 340px; /* Полная ширина */
+                                font-size: 16px; /* Увеличить размер шрифта */
+                                padding: 12px 20px 12px 40px; /* Добавить немного отступов */
+                                border: 1px solid #ddd; /* Добавить серую границу */
+                                margin-bottom: 12px; /* Добавить некоторое пространство под входом */
+                            }
+
+                        </style>
+
+                        <!--кнопка перехода на страницу регистрации -->
+                        <p style="display: inline"><input style="height:50px; width:110px;margin-left:360px" type="button" value=" Registration"  onclick="window.location.href ='http://localhost:8080/register';">
+                            <!--поле для ввода фильтра поиска-->
+                            <input style="margin-top: 40px; margin-left: 650px" type="text" id="myInput" onkeyup="myFunction()" placeholder="Поиск "></p>
+
+                        <thead>
+                        <tr>
+                            <th style="text-align: center; width: 40px; visibility: collapse " >Id</th>
+                            <th style="text-align: center; width: 500px" >User</th>
+                            <th style="text-align: center; width: 200px" >Password</th>
+                            <th style="text-align: center; width: 300px ">Email</th>
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="user: ${users}" >
+                            <td  style="visibility: collapse" th:text="${user.id} "  ></td>
+                            <td  th:text="${user.username}" id="username" ></td>
+                            <td  th:text="${user.password}" id="password" ></td>
+                            <td  th:text="${user.email}" id="email"></td>
+
+
+                            <!-- <td><a th:href="@{models-update/{id}(id=${models.id})}">Update</a></td>-->
+                            <td><a  th:href="@{users-delete/{id}(id=${user.id})}">Delete</a></td>
+                        </tr>
+
+                        </tbody>
+
+
+                        <!--скрипт для сортировки колонок таблицы.По возрастанию значений и убыванию-->
+                        <script>
+                            document.addEventListener('DOMContentLoaded', () => {
+
+                                const getSort = ({ target }) => {
+                                    const order = (target.dataset.order = (target.dataset.order || -1));
+                                    const index = [...target.parentNode.cells].indexOf(target);
+                                    const collator = new Intl.Collator(['en', 'ru'], { numeric: true });
+                                    const comparator = (index, order) => (a, b) => order * collator.compare(
+                                        a.children[index].innerHTML,
+                                        b.children[index].innerHTML
+                                    );
+                                    for(const tBody of target.closest('table').tBodies)
+                                        tBody.append(...[...tBody.rows].sort(comparator(index, order)));
+
+                                    for(const cell of target.parentNode.cells)
+                                        cell.classList.toggle('sorted', cell === target);
+                                };
+                                document.querySelectorAll('.table_sort thead').forEach(tableTH => tableTH.addEventListener('click', () => getSort(event)));
+                            });
+                        </script>
+
+                        <!-- скрипт поиска по значению -->
+                        <script>
+                            function myFunction() {
+                                // Объявить переменные
+                                let input, filter, table, tr, td, i, txtValue;
+                                input = document.getElementById("myInput");
+                                filter = input.value.toUpperCase();
+                                table = document.getElementById("table");
+                                tr = table.getElementsByTagName("tr");
+
+                                // Перебирайте все строки таблицы и скрывайте тех, кто не соответствует поисковому запросу
+                                for (i = 0; i < tr.length; i++) {
+                                    td = tr[i].getElementsByTagName("td")[1];
+                                    if (td) {
+                                        txtValue = td.textContent || td.innerText;
+                                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                            tr[i].style.display = "";
+                                        } else {
+                                            tr[i].style.display = "none";
+                                        }
+                                    }
+                                }
+                            }
+
+                        </script>
+
+                    </table>
+
+                </div>
+            </form>
+
+</body>
+</html>

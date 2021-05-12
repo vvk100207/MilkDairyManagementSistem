@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Users</title>
+
+</head>
+
+
+
+<body background="">  <!-- Картинка на заставке -->
+
+<form action="#" th:action="@{/register}" th:object="${user}" method="post">
+
+
+
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--    <a class="navbar-brand" href="#">Список покупок</a>-->
+
+<!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"-->
+<!--            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+
+<!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--        <ul class="navbar-nav mr-auto">-->
+<!--        </ul>-->
+
+<!--        <div sec:authorize="isAnonymous()" class="form-inline my-2 my-lg-0">-->
+<!--            <a class="btn btn-outline-success my-2 mr-2 my-sm-0" th:href="@{/login}">Логин</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+
+<form th:action="@{/register}" method="post" th:object="${user}">
+
+    <table id="Table" style=" margin-top: 265px; display: inline-block;margin-left: 450px; font-size: 30px;
+      font-weight: bold" border="1px">
+
+    <thead>
+    <tr>
+        <td style="text-align: center">Login</td>
+        <td style="text-align: center">Password</td>
+        <td style="text-align: center">Repeat password</td>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td ><input style="font-size: 25px" type="text" id="username" th:field="*{username}" class="form-control" placeholder="Enter user name"></td>
+<!--        <small class="form-text text-danger" th:each="err : ${#fields.errors('username')}" th:text="${err}">Validation error</small>-->
+        <td ><input style="font-size: 25px" type="password" id="password" th:field="*{password}" class="form-control" placeholder="Password" ></td>
+<!--        <small class="form-text text-danger" th:each="err : ${#fields.errors('password')}" th:text="${err}">Validation error</small>-->
+        <td ><input style="font-size: 25px" type="password" id="repeatPassword" th:field="*{repeatPassword}" class="form-control" placeholder="Repeat password"></td>
+<!--        <small class="form-text text-danger" th:each="err : ${#fields.errors('repeatPassword')}" th:text="${err}">Validation error</small>-->
+
+    </tr>
+    </tbody>
+    </tr>
+
+   </table>
+
+
+    <div>
+    <button style="margin-top: 45px; margin-left:450px; font-size: 30px" type="submit" class="btn btn-primary">Register</button>
+    </div>
+
+
+</form>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Milk dairy management system</title>
+
+
+    <style>  /*расположение наименований над кнопками*/
+        ul.hr {
+            padding:10px; /* Значение полей */
+        }
+        ul.hr li {
+            display: inline; /* Отображать как строчный элемент */
+            margin-right:90px;
+            margin-left: 10px;
+            font-family: "Times New Roman"; /* Стиль шрифта */
+            font-size: xx-large; /* Размер шрифта */
+            font-weight: bold; /* Жирность шрифта */
+            color: black ;
+        }
+    </style>
+
+    <style>  /*расположение кнопок на форме*/
+    ur.hr  {
+            padding:10px; /* Значение полей */
+        }
+    ur.hr button1 {
+        display: inline; /* Отображать как строчный элемент */
+        margin-right: 365px;
+        margin-left: 230px; /*сдвиг влево*/
+        border-radius: 100%;
+        border: 0;
+        height: 100px;
+        width: 100px;
+        }
+    ur.hr button2 {
+        display: inline; /* Отображать как строчный элемент */
+        margin-right: 0px;
+        margin-left: -185px;/*сдвиг влево*/
+        border-radius: 100%;
+        border: 0;
+        height: 100px;
+        width: 100px;
+    }
+    ur.hr button3 {
+        display: inline; /* Отображать как строчный элемент */
+        margin-right: 440px;
+        margin-left: 180px;/*сдвиг влево*/
+        border-radius: 100%;
+        border: 0;
+        height: 100px;
+        width: 100px;
+    }
+    ur.hr button4 {
+        display: inline; /* Отображать как строчный элемент */
+        margin-right: 8px;
+        margin-left: -230px;/*сдвиг влево*/
+        border-radius: 100%;
+        border: 0;
+        height: 100px;
+        width: 100px;
+    }
+    ur.hr button5 {
+        display: inline; /* Отображать как строчный элемент */
+        margin-right: 40px;
+        margin-left: 175px;/*сдвиг влево*/
+        border-radius: 100%;
+        border: 0;
+        height: 100px;
+        width: 100px;
+    }
+    ur.hr button6 {
+        display: inline; /* Отображать как строчный элемент */
+        margin-right: 0px;
+        margin-left: 35px;/*сдвиг влево*/
+        border-radius: 100%;
+        border: 0;
+        height: 100px;
+        width: 100px;
+    }
+    </style>
+
+</head>
+
+<a href="http://localhost:8080/milkDairy" ><img src=""></a>
+
+<body background="BackgroundMainPage.jpg">  <!-- Картинка на заставке -->
+
+
+
+
+<form>
+<div>
+ <center>
+   <ul class="hr" >
+    <li>Milk Dairy</li>
+    <li>Set Fate Price </li>
+    <li>Providers</li>
+    <li>Milk Dairy Records</li>
+    <li>Users</li>
+    <li>Exit</li>
+   </ul>
+</center>
+</div>
+
+<div>
+
+        <ur class="hr">
+    <!-- Пример прописания ссылкой на страницу   <a href="/models">Milk Dairy</a>     -->
+    <!--Кнопки-->
+
+            <button1><a href ="http://localhost:8080/milkDairy">
+                <img src="milkDairy.png" width="90" height="90"></a>
+           </button1>
+
+            <button2   onclick="window.location.href ='http://localhost:8080/setFatePrice';">
+                <img src="fate%20price.png" width="90" height="90" >
+            </button2>
+            <button3   onclick="window.location.href ='http://localhost:8080/searchAccount';">
+                <img src="searchAccount.png" width="90" height="90" >
+            </button3>
+
+            <button4><a href ="http://localhost:8080/dairyRecords">
+                <img src="milkDairyRecord.png" width="90" height="90" ></a>
+            </button4>
+
+            <button5 onclick="window.location.href ='http://localhost:8080/users';">
+                <img src="UsersButton.png" width="90" height="90" >
+            </button5>
+
+            <button6   onclick="window.location.href ='http://localhost:8080/ex';">
+                <img src="exit.png" width="90" height="90" >
+            </button6>
+        </ur>
+
+</div>
+</form>
+</body >
+</html>

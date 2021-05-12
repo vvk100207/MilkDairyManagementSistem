@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:display="http://www.w3.org/1999/xhtml"
+      xmlns:outline="http://www.w3.org/1999/xhtml">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title >Milk dairy</title>
+</head>
+
+<center>
+    <H1 > Milk Dairy </H1>
+</center>
+
+<body background="MilkDairyMainPage.jpg">
+
+<form action="#" th:action="@{/milkDairy}" th:object="${milkDairy}" method="post">
+
+    <style>
+    ul.hr {
+        padding:10px;
+    }
+    ul.hr li {
+        display: inline;
+        margin-right:90px;
+        margin-left: 10px;
+        font-family: "Times New Roman";
+        font-size: xx-large;
+        font-weight: bold;
+        color: black ;
+    }
+    </style>
+
+    <style>
+    ur.hr  {
+        padding:10px;
+    }
+    ur.hr button1 {
+        display: inline;
+        margin-right: 370px;
+        margin-left: 230px;
+        border-radius: 100%;
+        border: 0;
+        height: 100px;
+        width: 100px;
+    }
+    ur.hr button2 {
+        display: inline;
+        margin-right: 0px;
+        margin-left: -185px;
+        border-radius: 100%;
+        border: 0;
+        height: 100px;
+        width: 100px;
+    }
+    ur.hr button3 {
+        display: inline;
+        margin-right: 440px;
+        margin-left: 177px;
+        border-radius: 100%;
+        border: 0;
+        height: 100px;
+        width: 100px;
+    }
+    ur.hr button4 {
+        display: inline;
+        margin-right: 8px;
+        margin-left: -230px;
+        border-radius: 100%;
+        border: 0;
+        height: 100px;
+        width: 100px;
+    }
+    ur.hr button5 {
+        display: inline;
+        margin-right: 40px;
+        margin-left: 165px;
+        border-radius: 100%;
+        border: 0;
+        height: 100px;
+        width: 100px;
+    }
+    ur.hr button6 {
+        display: inline;
+        margin-right: 0px;
+        margin-left:40px;
+        border-radius: 100%;
+        border: 0;
+        height: 100px;
+        width: 100px;
+    }
+    </style>
+
+    <form>
+        <div>
+            <center>
+                <ul class="hr" >
+                    <li>Main Page</li>
+                    <li>Set Fate Price </li>
+                    <li>Providers</li>
+                    <li>Milk Dairy Record</li>
+                    <li>Users</li>
+                    <li>Exit</li>
+                </ul>
+            </center>
+        </div>
+
+        <div>
+
+            <ur class="hr">
+
+
+                <button1 onclick="window.location.href ='http://localhost:8080/milk';">
+                    <img src="MainPageButton.png" width="90" height="90">
+                </button1>
+
+                <button2   onclick="window.location.href ='http://localhost:8080/setFatePrice';">
+                    <img src="fate%20price.png" width="90" height="90" >
+                </button2>
+                <button3   onclick="window.location.href ='http://localhost:8080/searchAccount';">
+                    <img src="searchAccount.png" width="90" height="90" >
+                </button3>
+
+                <button4 onclick="window.location.href ='http://localhost:8080/dairyRecords';">
+                    <img src="milkDairyRecord.png" width="90" height="90" >
+                </button4>
+
+                <button5 onclick="window.location.href ='http://localhost:8080/users';">
+                    <img src="UsersButton.png" width="90" height="90" >
+                </button5>
+
+                <button6 onclick="window.location.href ='http://localhost:8080/exit';">
+                    <img src="exit.png" width="90" height="90 " >
+                </button6>
+            </ur>
+
+        </div>
+            <table id="myTable" style=" margin-top: 65px; display: inline-block;margin-left: 130px; font-size: 20px;
+      font-weight: bold" border="1px">
+
+                <thead>
+                <tr>
+                    <td style="text-align: center">Date</td>
+                    <td style="text-align: center">Account number</td>
+                    <td style="text-align: center">Name</td>
+                    <td style="text-align: center">Adress</td>
+                    <td style="text-align: center">Dairy number</td>
+                    <td style="text-align: center">Liter</td>
+                    <td style="text-align: center">Price/Liter</td>
+                    <td style="text-align: center">Total</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td ><input style="font-size: 15px" type="text" th:field="*{date}" maxlength="50" size="20 " id="date"  onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" ></td>
+                    <td ><input style="font-size: 15px" type="text" th:field="*{accountNumber}" maxlength="50" size="20 " id="account" ></td>
+                    <td ><input style="font-size: 15px" type="text" th:field="*{name}" maxlength="50" size="20 " id="name" ></td>
+                    <td ><input style="font-size: 15px" type="text" th:field="*{address}" maxlength="50" size="20 " id="address" ></td>
+                    <td ><input style="font-size: 15px" type="text" th:field="*{dairyNumber}" maxlength="50" size="20 " id="dairyNumber" ></td>
+                    <td ><input style="font-size: 15px" type="text" th:field="*{liter}" maxlength="50" size="20 " id="liter" oninput="mult()"></td>
+                    <td><input style="font-size: 15px" type="text" th:field="*{priceLiter}" maxlength="50" size="20 " id="priceLiter" oninput="mult()" ></td>
+                    <td ><input style="font-size: 15px" type="text" th:field="*{total}" maxlength="50" size="20 " id="total" ></td>
+                </tr>
+                </tbody>
+                </tr>
+
+                <!-- онлайн рассчет двух чисел  из строк liter и  priceLiter на первой строке. Обязательно надо в строках priceLiter и liter ввести    oninput="mult() -->
+                <script>
+                    function mult() {
+                        const first = document.getElementById('liter').value;
+                        const second = document.getElementById('priceLiter').value;
+                        document.getElementById('total').value = (first * second).toFixed(2); /*  где toFixed(2)  устанавливает 2 знака после точки*/
+                    }
+                </script >
+
+                <!-- всплывающее  окно оповещения добавления данных на странице-->
+                <script>
+                    function myFunction() {
+                        alert("Dairy milk details inserted successfully!");
+                    }
+                </script>
+
+            </table>
+
+
+        <tr>
+            <td align ="right" width="100"><input style="height:50px;width:130px;margin-top: 60px;margin-left:130px" onclick="myFunction()" type="submit" value="SAVE"></td>
+            <td ><input style="height:50px;width:130px" type="reset" value="Reset"></td>
+        </tr>
+        </table>
+
+
+<!--скрипт для выхода из страницы-->
+        <script>
+
+            function closeWindow(){
+                {window.close()}
+            }
+        </script>
+    </form>
+  </body>
+</html>

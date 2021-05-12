@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta charset="UTF-8">
+
+    <title>Set Fate Price</title>
+
+</head>
+
+
+<center>
+    <H1 > Set Fate Price </H1>
+</center>
+
+<body background="PriceBackground.jpg">
+
+<div th:switch="${milkPrices}" >
+    <h2 th:case="null">No records found!</h2>
+    <div th:case="*">
+
+<form action="#" th:action="@{/setFatePrice}" th:object="${milkPrice}" method="post">
+
+    <style>  /*расположение наименований над кнопками*/
+    ul.hr {
+        padding:10px; /* Значение полей */
+    }
+    ul.hr li {
+        display: inline; /* Отображать как строчный элемент */
+        margin-right:90px;
+        margin-left: 10px;
+        font-family: "Times New Roman"; /* Стиль шрифта */
+        font-size: xx-large; /* Размер шрифта */
+        font-weight: bold; /* Жирность шрифта */
+        color: black ;
+    }
+    </style>
+
+    <style>  /*расположение кнопок на форме*/
+    ur.hr  {
+        padding:10px; /* Значение полей */
+    }
+    ur.hr button1 {
+        display: inline; /* Отображать как строчный элемент */
+        margin-right: 370px;
+        margin-left: 325px; /*сдвиг влево*/
+        border-radius: 100%;
+        border: 0;
+        height: 100px;
+        width: 100px;
+    }
+    ur.hr button2 {
+        display: inline; /* Отображать как строчный элемент */
+        margin-right: 0px;
+        margin-left: -210px;/*сдвиг влево*/
+        border-radius: 100%;
+        border: 0;
+        height: 100px;
+        width: 100px;
+    }
+    ur.hr button3 {
+        display: inline; /* Отображать как строчный элемент */
+        margin-right: 440px;
+        margin-left: 200px;/*сдвиг влево*/
+        border-radius: 100%;
+        border: 0;
+        height: 100px;
+        width: 100px;
+    }
+    ur.hr button4 {
+        display: inline; /* Отображать как строчный элемент */
+        margin-right: 8px;
+        margin-left: -190px;/*сдвиг влево*/
+        border-radius: 100%;
+        border: 0;
+        height: 100px;
+        width: 100px;
+    }
+    /*ur.hr button5 {*/
+    /*    display: inline; !* Отображать как строчный элемент *!*/
+    /*    margin-right: 40px;*/
+    /*    margin-left: 225px;!*сдвиг влево*!*/
+    /*    border-radius: 100%;*/
+    /*    border: 0;*/
+    /*    height: 100px;*/
+    /*    width: 100px;*/
+    /*}*/
+    ur.hr button6 {
+        display: inline; /* Отображать как строчный элемент */
+        margin-right: 0px;
+        margin-left: 155px;/*сдвиг влево*/
+        border-radius: 100%;
+        border: 0;
+        height: 100px;
+        width: 100px;
+    }
+    </style>
+
+    <form>
+        <div>
+            <center>
+                <ul class="hr" >
+                    <li>Main Page</li>
+                    <li>Milk Dairy </li>
+                    <li>Providers</li>
+                    <li>Milk Dairy Record</li>
+<!--                    <li>New Account</li>-->
+                    <li>Exit</li>
+                </ul>
+            </center>
+        </div>
+
+        <div>
+
+            <ur class="hr">
+                <!-- Пример прописания ссылкой на страницу   <a href="/models">Milk Dairy</a>     -->
+                <!--Кнопки-->
+
+                <button1><a href ="http://localhost:8080/milk">
+                    <img src="MainPageButton.png" width="90" height="90"></a>
+                </button1>
+
+                <button2   onclick="window.location.href ='http://localhost:8080/milkDairy';">
+                    <img src="milkDairy.png" width="90" height="90" >
+                </button2>
+                <button3   onclick="window.location.href ='http://localhost:8080/searchAccount';">
+                    <img src="searchAccount.png" width="90" height="90" >
+                </button3>
+
+                <button4><a href ="http://localhost:8080/dairyRecords">
+                    <img src="milkDairyRecord.png" width="90" height="90" ></a>
+                </button4>
+
+<!--                <button5 onclick="window.location.href ='http://localhost:8080/newAccount';">-->
+<!--                    <img src="accountNew.png" width="90" height="90" >-->
+<!--                </button5>-->
+
+                <button6   onclick="window.location.href ='http://localhost:8080/ex';">
+                    <img src="exit.png" width="90" height="90" >
+                </button6>
+            </ur>
+        </div>
+
+        <table id="myTable" style=" margin-top: 65px; display: inline-block;margin-left: 130px; font-size: 20px;
+      font-weight: bold" border="1px">
+
+
+            <thead style="color: white">
+            <tr>
+                <td style="text-align: center">Date</td>
+                <td style="text-align: center">Current price</td>
+                <td style="text-align: center">New price</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+<!-- th: убираем и добавляем name="значение". Только так эта конструкция работает -->
+                <td ><input style="font-size: 15px" type="text" field="*{date}" name="date" maxlength="50" size="20 " id="date"  onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" ></td>
+                <td ><input style="font-size: 15px" type="text" field="*{current_price}" name="current_price" maxlength="50" size="20 " id="currentPrice" ></td>
+                <td ><input style="font-size: 15px" type="text" field="*{new_price}" name="new_price" maxlength="50" size="20 " id="newPrice" ></td>
+            </tr>
+            </tbody>
+            </tr>
+
+
+
+            <!-- всплывающее  окно оповещения добавления данных на странице-->
+            <script>
+                function myFunction() {
+                    alert("Dairy milk details inserted successfully!");
+                }
+            </script>
+
+        </table>
+
+        <tr>
+            <td align ="right" width="100"><input style="height:50px;width:130px;margin-top: 60px;margin-left:130px" onclick="myFunction()" type="submit" value="SAVE"></td>
+            <td ><input style="height:50px;width:130px" type="reset" value="Reset"></td>
+        </tr>
+
+        <table id= "price1" name= "price1">
+        <!--размеры таблицы-->
+        <style>
+            table {
+                font-size: 20px;
+                font-weight: bold;
+                border-collapse: collapse;
+                margin-top: 40px;
+                text-align: center;
+                margin-left: 60px;
+            }
+            td, th {
+                border: 1px solid #98bf21;
+                padding: 4px 8px 4px 8px;
+            }
+            th {
+                text-align: left;
+                padding: 5px;
+                background-color: #A7C942;
+                color: #fff;
+            }
+            .alt td { background-color: #EAF2D3; }
+        </style>
+
+        <thead>
+        <tr>
+            <th style="text-align: center; width: 60px; visibility: collapse " >Id</th>
+            <th style="text-align: center; width: 100px ">Date</th>
+            <th style="text-align: center; width: 100px">Current price</th>
+            <th style="text-align: center; width: 100px" >New price</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="milkPrice: ${milkPrices}" style="color: white" >
+            <td style="visibility: collapse" th:text="${milkPrice.id}" id="milkPrice"  ></td>
+            <td th:text="${milkPrice.date}" id="date"></td>
+            <td th:text="${milkPrice.current_price}" id="current_price" ></td>
+            <td th:text="${milkPrice.new_price}" id="new_price" ></td>
+
+
+            <td><a th:href="@{setFatePrice-delete/{id}(id=${milkPrice.id})}" style="color: cyan">Delete</a></td>
+          </tr>
+        </tbody>
+
+
+        </table>
+
+    </form>
+</body>
+</html>

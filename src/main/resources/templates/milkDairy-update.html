@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+
+<title>Milk Dairy Update</title>
+
+</head>
+
+<center>
+    <h1 >Milk Dairy Update</h1>
+</center>
+
+<body >
+
+<form action="#" th:action="@{/milkDairy-update}" th:object="${milkDairy}" method="post">
+
+<center>
+    <table style=" margin-top: 35px; font-weight: bold" width="70%" cellspacing="0" cellpadding="30"> <!-- 30 это масштаб таблицы-->
+
+        <tr >
+            <td style="font-size: 30px " align ="right" width="300" for="date">Date</td> <!-- 300 это вся таблица сдвигается вправо. значение меняется только тут на всю таблицу-->
+            <td><input style="font-size: 20px" type="text" th:field="*{date}" maxlength="50" size="20 " id="date" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'"></td> <!-- 20 длина поля-->
+        </tr>
+        <tr >
+            <td style="font-size: 30px " align ="right" width="100" for="account">Account number</td> <!-- 300 это вся таблица сдвигается вправо. значение меняется только тут на всю таблицу-->
+            <td><input style="font-size: 20px" type="text" th:field="*{accountNumber}" maxlength="50" size="20 " id="account" ></td> <!-- 20 длина поля-->
+        </tr>
+        <tr>
+            <td style="font-size: 30px" align ="right" width="100" for="name">Name</td>
+            <td><input style="font-size: 20px" type="text" th:field="*{name}" maxlength="50" size="20 " id="name" ></td>
+        </tr>
+        <tr>
+            <td style="font-size: 30px" align ="right" width="100" for="address">Adress</td>
+            <td><input style="font-size: 20px" type="text" th:field="*{address}" maxlength="50" size="20 " id="address" ></td>
+        </tr>
+        <tr>
+            <td style="font-size: 30px" align ="right" width="100" for="dairy">Dairy number</td>
+            <td><input style="font-size: 20px" type="text" th:field="*{dairyNumber}" maxlength="50" size="20 " id="dairyNumber" ></td>
+        </tr>
+        <tr>
+            <td style="font-size: 30px" align ="right" width="100" for="liter">Liter</td>
+            <td><input style="font-size: 20px" type="text" th:field="*{liter}" maxlength="50" size="20 " id="liter" oninput="mult()" ></td> <!--20px это размер строк-->
+        </tr>
+        <tr>
+            <td style="font-size: 30px" align ="right" width="100" for="priceLiter">Price/Liter</td>
+            <td><input style="font-size: 20px" type="text" th:field="*{priceLiter}" maxlength="50" size="20 " id="priceLiter" oninput="mult()"> </td>
+        </tr>
+        <tr>
+            <td style="font-size: 30px" align ="right" width="100" for="total">Total</td>
+            <td><input style="font-size: 20px" type="text" th:field="*{total}" maxlength="50" size="20 " id="total" ></td>
+        </tr>
+        <tr>
+            <td align ="right" width="100"><input style="height:50px;width:130px;background: coral" type="submit" value="Update Milk Dairy" ></td>
+            <td><button style="height:50px;width:130px;background: skyblue" href ="http://localhost:8080/dairyRecords">Milk Dairy Records</button></td>
+        </tr>
+
+    </table>
+</center>
+    <!-- онлайн рассчет двух чисел  из строк liter и  priceLiter на первой строке. Обязательно надо в строках priceLiter и liter ввести    oninput="mult() -->
+    <script>
+        function mult() {
+            const first = document.getElementById('liter').value;
+            const second = document.getElementById('priceLiter').value;
+            document.getElementById('total').value = (first * second).toFixed(2); /*  где toFixed(2)  устанавливает 2 знака после точки*/
+        }
+    </script >
+
+
+
+</form>
+</body>
+</html>
